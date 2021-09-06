@@ -1,5 +1,6 @@
+//links path dependency
 var path = require("path");
-// configuring routes for HTTP requests.
+//api paths for delivery of HTML files
 module.exports = function (app) {
   // return notes.html file
   app.get("/notes", (req, res) => {
@@ -10,7 +11,7 @@ module.exports = function (app) {
     res.sendFile(path.join(__dirname, "../public/index.html"));
   });
 
-  // If no matching route is found default to home
+  // If no matching route is found default to index.html
   app.get("*", (req, res) => {
     res.sendFile(path.join(__dirname, "../public/index.html"));
   });
