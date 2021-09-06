@@ -19,8 +19,6 @@ const writeData = (noteData) => {
   );
 };
 
-// const newNoteId = () => noteId++;
-
 module.exports = function (app) {
   app.get("/api/notes", (req, res) => {
     let noteData = readData();
