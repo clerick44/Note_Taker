@@ -1,7 +1,6 @@
 const path = require("path");
 const fs = require("fs");
 const uui = require("../helpers/uuid");
-let noteCount = 1;
 
 const readData = () => {
   const noteData = JSON.parse(
@@ -20,7 +19,7 @@ const writeData = (noteData) => {
   );
 };
 
-const newNoteId = () => noteId++;
+// const newNoteId = () => noteId++;
 
 module.exports = function (app) {
   app.get("/api/notes", (req, res) => {
@@ -31,7 +30,6 @@ module.exports = function (app) {
   app.post("/api/notes", (req, res) => {
     let noteData = readData();
     let newNote = req.body;
-    let lastNoteID = !noteData[0] ? 0 : noteData[noteData.length - 1].id;
     let newNoteID = uui();
 
     newNote.id = newNoteID;
